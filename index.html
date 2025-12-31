@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank 🏦 - Login</title>
+    <link rel="stylesheet" href="bank-styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="60" rx="12" fill="url(#gradient)"/>
+                    <path d="M20 30C20 24.477 24.477 20 30 20C35.523 20 40 24.477 40 30C40 35.523 35.523 40 30 40C24.477 40 20 35.523 20 30Z" stroke="white" stroke-width="2"/>
+                    <path d="M30 25V35M25 30H35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="60" y2="60">
+                            <stop offset="0%" stop-color="#1e40af"/>
+                            <stop offset="100%" stop-color="#3b82f6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Sign in to your account</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <button type="submit" class="btn-primary">Sign In</button>
+                
+                <div class="demo-credentials">
+                    <p>Demo Credentials:</p>
+                    <p><strong>Username:</strong> user | <strong>Password:</strong> pass</p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Banking</h3>
+                <p>Your data is protected with bank-level security</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💳</div>
+                <h3>Multiple Accounts</h3>
+                <p>Manage checking and savings accounts</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <h3>Transaction History</h3>
+                <p>Track all your transactions in one place</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="bank-app.js"></script>
+</body>
+</html>
