@@ -89,32 +89,44 @@ function initializeData() {
 // Login Page Logic
 if (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '/index.html') {
     initializeData();
-    
-    const loginForm = document.getElementById('loginForm');
-    const errorMessage = document.getElementById('errorMessage');
-    
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const user = JSON.parse(localStorage.getItem('bankUser'));
-            
-            if (username === user.username && password === user.password) {
-                localStorage.setItem('isLoggedIn', 'true');
-                window.location.href = 'dashboard.html';
-            } else {
-                errorMessage.textContent = 'Invalid username or password';
-                errorMessage.classList.add('show');
-                
-                setTimeout(() => {
-                    errorMessage.classList.remove('show');
-                }, 3000);
-            }
-        });
-    }
-}
+   // ================= LOGIN PAGE LOGIC =================
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("loginForm");
+
+    // If loginForm does not exist, we are NOT on login page
+    if (!loginForm) return;
+
+    initializeData();
+
+    const errorMessage = document.getElementById("errorMessage");
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        const user = JSON.parse(localStorage.getItem("bankUser"));
+
+        if (!user) {
+            errorMessage.textContent = "User data not found";
+            return;
+        }
+
+        if (username === user.username && password === user.password) {
+            localStorage.setItem("isLoggedIn", "true");
+            window.location.href = "dashboard.html";
+        } else {
+            errorMessage.textContent = "Invalid username or password";
+            errorMessage.classList.add("show");
+
+            setTimeout(() => {
+                errorMessage.classList.remove("show");
+            }, 3000);
+        }
+    });
+});
+
 
 // Dashboard Logic
 if (window.location.pathname.includes('dashboard.html')) {
